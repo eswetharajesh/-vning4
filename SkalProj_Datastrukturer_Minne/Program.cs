@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Runtime.InteropServices;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -32,21 +34,17 @@ namespace SkalProj_Datastrukturer_Minne
                 switch (input)
                 {
                     case '1':
-                        ExamineList();
+                        ListView.ExamineList();
                         break;
                     case '2':
-                        ExamineQueue();
+                        QueueView.ExamineQueue();
                         break;
                     case '3':
-                        ExamineStack();
+                        StackView.ExamineStack();
                         break;
                     case '4':
-                        CheckParanthesis();
+                        ParenthesisCheck.CheckParanthesis();
                         break;
-                    /*
-                     * Extend the menu to include the recursive 
-                     * and iterative exercises.
-                     */
                     case '0':
                         Environment.Exit(0);
                         break;
@@ -57,63 +55,31 @@ namespace SkalProj_Datastrukturer_Minne
             }
         }
 
-        /// <summary>
-        /// Examines the datastructure List
-        /// </summary>
-        static void ExamineList()
-        {
-            /*
-             * Loop this method untill the user inputs something to exit to main menue.
-             * Create a switch statement with cases '+' and '-'
-             * '+': Add the rest of the input to the list (The user could write +Adam and "Adam" would be added to the list)
-             * '-': Remove the rest of the input from the list (The user could write -Adam and "Adam" would be removed from the list)
-             * In both cases, look at the count and capacity of the list
-             * As a default case, tell them to use only + or -
-             * Below you can see some inspirational code to begin working.
-            */
-
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
-
-            //switch(nav){...}
-        }
-
-        /// <summary>
-        /// Examines the datastructure Queue
-        /// </summary>
-        static void ExamineQueue()
-        {
-            /*
-             * Loop this method untill the user inputs something to exit to main menue.
-             * Create a switch with cases to enqueue items or dequeue items
-             * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
-            */
-        }
-
-        /// <summary>
-        /// Examines the datastructure Stack
-        /// </summary>
-        static void ExamineStack()
-        {
-            /*
-             * Loop this method until the user inputs something to exit to main menue.
-             * Create a switch with cases to push or pop items
-             * Make sure to look at the stack after pushing and and poping to see how it behaves
-            */
-        }
-
-        static void CheckParanthesis()
-        {
-            /*
-             * Use this method to check if the paranthesis in a string is Correct or incorrect.
-             * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
-             * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
-             */
-
-        }
-
     }
 }
 
+/*
+Page 3 Answers:
+
+1. Stack: Used for function calls and local variables, LIFO. Fast and predictable.
+   Heap: Used for dynamic memory allocation, objects with varying lifetimes. Manual allocation.
+
+Illustration:
+void StackExample() {
+    int x = 5; // Variable x is stored on the stack
+    int y = x; // Copies the value of x to y
+}
+void HeapExample() {
+    int[] arr = new int[5]; // Allocates an array on the heap
+    arr[0] = 5; // Assigns a value to the first element
+    int[] arr2 = arr; // Copies the reference to arr2, both point to the same array on the heap
+}
+
+2. Value Types: Store actual values, copy on assignment (e.g., int, struct).
+   Reference Types: Store references to data, share on assignment (e.g., class, array).
+
+3. ReturnValue(): Returns 3 because integers are value types.
+   ReturnValue2(): Returns 4 because objects of MyInt (a reference type) are shared, and the value is 
+   modified through both references.
+
+*/
